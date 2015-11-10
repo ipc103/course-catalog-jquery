@@ -1,33 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Flatiron Course Catalogue</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-  <script src="scripts/app.js"></script>
-</head>
-<body>
-  <h1 id="brand">Flatiron Oregon School</h1>
-   <ul class="courses">
-     <li class="course">
-       Ruby
-       <div class="details">Learn about Web development</div>
-     </li>
-     <li class="course">
-       iOS
-       <div class="details">Learn to make Mobile Apps</div>
-     </li>
-   </ul>
-   <form action="">
-     <div class='name '>
-       <label for="name">Class Name</label>
-       <input class='input input_name' type="text" name='course[name]'>
-     </div>
-     <div class='details'>
-       <label for="details">Class Details</label>
-       <input type="text" name='course[details]'>
-     </div>
-     <input type="submit">
-   </form>
-</body>
-</html>
+// Task: When we click on a text input, 
+// and then move away without entering text, 
+// we want to see an error msg
+  $(addErrorMessage);
+
+  function textInputs(){
+    return $('input:text')
+  };
+
+  function addErrorMessage(){
+    var $inputs = $(textInputs());  
+    $inputs.on('blur', function(){
+      debugger;
+      var myInput = 
+      var divText = myInput.el.parent().text()
+      if( $(this).val().length < 1 && hasNoErrorMessage( divText,"You messed up!") ){
+        $(this).after('You messed up!')  
+      }
+    })
+  }
+
+  // course_name_input = new Input(<input type='text'></input>)
+  // course_name_input.hasErrorMessage
+  // course_name_input.hasContent
+
+  function Input(dom){
+    this.el = $(dom)
+  }
+
+ 
+
+  function hasNoErrorMessage(string, substring ){
+    if (string.indexOf(substring) === -1 ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
